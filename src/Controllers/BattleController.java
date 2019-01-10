@@ -13,6 +13,7 @@ public class BattleController {
 
     public void initializeBattle(Player player, IEnemy enemy) {
         boolean end = false;
+        System.out.println("You've encountered " + enemy.type() + "!");
         while(end == false) {
             System.out.println();
             System.out.println("Your turn:");

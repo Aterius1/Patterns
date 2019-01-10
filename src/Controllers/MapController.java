@@ -10,11 +10,11 @@ import java.util.Scanner;
 
 public class MapController {
 
-    public Map generateMap() {
+    public void generateMap() {
         Random rand = new Random();
         EnemyFactory enemyFactory = new EnemyFactory();
-        Map map = new Map();
         Scanner scn = new Scanner(System.in);
+        Map map = Map.getInstance();
         System.out.println("Choose map size");
         int size = scn.nextInt();
         Room[][] rooms = new Room[size][size];
@@ -25,9 +25,10 @@ public class MapController {
                 rooms[i][j] = new Room(enemy);
             }
         }
+        IEnemy boss = enemyFactory.getEnemy(4);
+        rooms[size - 1][size - 1] = new Room(boss);
         map.setRooms(rooms);
         map.setMapSize(size);
-        return map;
     }
 
 }

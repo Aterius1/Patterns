@@ -11,6 +11,9 @@ public class EnemyFactory { //factory
         else if(enemyType == 3) {
             return new Dwarf(50, 50, 1, 5, false, false);
         }
+        else if(enemyType == 4) {
+            return new Boss(100, 100, 20, 20, false, false);
+        }
         return null;
     }
 }

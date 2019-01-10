@@ -19,6 +19,9 @@ public class Orc implements ICharacter, IEnemy {
         this.isPlayer = isPlayer;
     }
 
+    public String type() {
+        return "an orc";
+    }
 
     @Override
     public void damage(int val) {

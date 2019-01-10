@@ -6,7 +6,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
         GameController game = new GameController();
+
         game.newGame();
+
         game.printMinimap();
         while(true) {
             String command = scn.nextLine();
@@ -28,9 +30,11 @@ public class Main {
                 game.printMinimap();
             }
 
-
-
             else if(command.equals("exit")) {
+                break;
+            }
+
+            if(game.endGameLose || game.endGameWin) {
                 break;
             }
         }

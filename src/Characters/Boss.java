@@ -1,6 +1,6 @@
 package Characters;
 
-public class Elf implements ICharacter, IEnemy {
+public class Boss implements ICharacter, IEnemy {
 
     private int health;
     private int maxHealth;
@@ -11,7 +11,7 @@ public class Elf implements ICharacter, IEnemy {
     private int positionX;
     private int positionY;
 
-    public Elf(int health, int maxHealth, int strength, int defence, boolean isDead, boolean isPlayer) {
+    public Boss(int health, int maxHealth, int strength, int defence, boolean isDead, boolean isPlayer) {
         this.health = health;
         this.maxHealth = maxHealth;
         this.strength = strength;
@@ -21,7 +21,7 @@ public class Elf implements ICharacter, IEnemy {
     }
 
     public String type() {
-        return "an elf";
+        return "the boss";
     }
 
     @Override
@@ -84,5 +84,6 @@ public class Elf implements ICharacter, IEnemy {
     public int getPositionY() {
         return positionY;
     }
+
 
 }

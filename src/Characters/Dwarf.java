@@ -19,6 +19,10 @@ public class Dwarf implements ICharacter, IEnemy{
         this.isPlayer = isPlayer;
     }
 
+    public String type() {
+        return "a dwarf";
+    }
+
     @Override
     public void damage(int val) {
         if(val < 0) {

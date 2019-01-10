@@ -1,6 +1,16 @@
 package Map;
 
-public class Map {
+public class Map { // Singleton
+
+    private static Map map = new Map();
+
+    public static Map getInstance() {
+        return map;
+    }
+
+    private Map() {
+
+    }
 
     private Room[][] rooms;
     private int mapSize;

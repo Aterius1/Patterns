@@ -1,6 +1,8 @@
 package Characters;
 
 public interface IEnemy {
+     String type();
+
      void setPositionX(int positionX);
 
      void setPositionY(int positionY);

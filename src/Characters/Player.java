@@ -32,27 +32,6 @@ public class Player implements ICharacter{ // singleton
         return player;
     }
 
-//    public void move(String direction, int mapSize) {
-//        switch (direction) {
-//            case "up":
-//                if(positionY > 0)
-//                    positionY--;
-//                break;
-//            case "down":
-//                if(positionY < mapSize - 1)
-//                    positionY++;
-//                break;
-//            case "left":
-//                if(positionX > 0)
-//                    positionX--;
-//                break;
-//            case "right":
-//                if(positionX < mapSize - 1)
-//                   positionX++;
-//                break;
-//        }
-//    }
-
     @Override
     public void printStats() {
         System.out.println("------------------------------------------------------------------------");
