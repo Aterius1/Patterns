@@ -4,6 +4,9 @@ import Characters.IEnemy;
 import Characters.Player;
 import Map.Map;
 import Map.Minimap;
+import Memento.Caretaker;
+import Memento.Originator;
+import Memento.PlayerState;
 
 public class GameController {
     private MapController mapController = new MapController();
@@ -11,17 +14,34 @@ public class GameController {
     private BattleController battleController = new BattleController();
     private Map map = Map.getInstance();
     private Minimap minimap;
-    private Player player;
+    private Player player = Player.getInstance();
+    private PlayerState playerState;
+
+    private Originator originator = new Originator();
+    private Caretaker caretaker = new Caretaker();
 
     public boolean endGameLose = false;
     public boolean endGameWin = false;
 
+    public void saveGame() {
+        playerState = new PlayerState(player.getHealth(), player.getMaxHealth(), player.getStrength(),
+                player.getDefence(), player.isDead(), player.isPlayer(), player.getPositionX(), player.getPositionY(), player.getLevel(), player.getExperience());
+        originator.setState(playerState);
+        caretaker.add(originator.saveStateToMemento());
+    }
+
+    public void loadGame() {
+        originator.getStateFromMemento(caretaker.get(0));
+        PlayerState state = originator.getState();
+        playerController.initializePlayer(state);
+    }
 
     public void newGame() {
         mapController.generateMap();
         map.getRooms()[0][0].setPlayerHere(true);
         minimap = new Minimap(map);
-        player = Player.getInstance();
+        PlayerState state = new PlayerState(50, 50, 20, 10, false, true, 0, 0, 1, 0);
+        playerController.initializePlayer(state);
     }
 
     public void printMinimap() {

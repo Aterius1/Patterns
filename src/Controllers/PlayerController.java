@@ -1,12 +1,21 @@
 package Controllers;
 
 import Characters.Player;
+import Memento.PlayerState;
 
 public class PlayerController {
     Player player = Player.getInstance();
 
-    public void initializePlayer() {
-
+    public void initializePlayer(PlayerState state) {
+//        PlayerState state = new PlayerState(50, 50, 20, 10, false, true, 0, 0, 1, 0);
+        player.setMaxHealth(state.getMaxHealth());
+        player.setHealth(state.getHealth());
+        player.setPositionY(state.getPositionY());
+        player.setPositionX(state.getPositionX());
+        player.setStrength(state.getStrength());
+        player.setDefence(state.getDefence());
+        player.setLevel(state.getLevel());
+        player.setExperience(state.getExperience());
     }
 
     public void move(String direction, int mapSize) {

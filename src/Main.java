@@ -30,6 +30,18 @@ public class Main {
                 game.printMinimap();
             }
 
+            else if(command.equals("save")) {
+                game.saveGame();
+            }
+
+            else if(command.equals("stats")) {
+                game.getPlayer().printStats();
+            }
+
+            else if(command.equals("load")) {
+                game.loadGame();
+            }
+
             else if(command.equals("exit")) {
                 break;
             }
